@@ -12,9 +12,15 @@ Things To Setup
 * CONSUMER_SECRET 
 * ACCESS_TOKEN 
 * ACCESS_TOKEN_SECRET
+* Using Python 2.7
+* Using DSE Analytics 6
+* Using latest verion of Jupyter
 * Install Anaconda and Jupyter #Anaconda is not required but will make installing jupyter easier 
+* Find full path to <>/dse-6.0.1/resources/spark/python/lib/pyspark.zip
+* Find full path to <>/dse-6.0.1/resources/spark/python/lib/py4j-0.10.4-src.zip
 * Start Jupyter with DSE to get all environemnt variables: dse exec jupyter notebook
 * !pip install cassandra-driver
 * !pip install tweepy 
 * !pip install pattern 
-* Counter-intuitive don't install pyspark! 
+* !pip install panadas
+* Counter-intuitive don't install pyspark!!
