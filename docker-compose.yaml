@@ -1,0 +1,41 @@
+version: '3'
+
+#
+# docker-compose.yaml
+#
+
+services:
+  # DataStax Enterprise
+  # start with analytics mode enabled ("-k")
+  dse:
+    image: datastax/dse-server:6.0.2
+    command: [ -k ]
+    ports:
+    - "9042:9042" # cassandra
+    - "5598:5598" # dsefs
+    environment:
+      DS_LICENSE: accept
+    # Allow DSE to lock memory with mlock
+    cap_add:
+    - IPC_LOCK
+    ulimits:
+      memlock: -1
+
+  jupyter:
+    image: bigdatadayla/dse-jupyter
+    ports:
+    - "8888:8888"
+    volumes:
+      # associate notebooks directory under the directory where we run docker-compose
+      # with the data directory on our node
+      - "./notebooks:/var/lib/jupyter"
+      - "./config:/config"
+    environment:
+      DS_LICENSE: accept
+      CONSUMER_KEY: $CONSUMER_KEY
+      CONSUMER_SECRET: $CONSUMER_SECRET
+      ACCESS_TOKEN: $ACCESS_TOKEN
+      ACCESS_TOKEN_SECRET: $ACCESS_TOKEN_SECRET
+    links:
+    - dse
+
