@@ -22,14 +22,13 @@ services:
       memlock: -1
 
   jupyter:
-    image: bigdatadayla/dse-jupyter
+    image: jeffreyscarpenter/dse-jupyter:6.0.2
     ports:
     - "8888:8888"
     volumes:
       # associate notebooks directory under the directory where we run docker-compose
       # with the data directory on our node
       - "./notebooks:/var/lib/jupyter"
-      - "./config:/config"
     environment:
       DS_LICENSE: accept
       CONSUMER_KEY: $CONSUMER_KEY
