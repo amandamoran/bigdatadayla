@@ -31,16 +31,14 @@ Big Data Day LA demo
 
 ### Running with Docker
 * Make sure you have Docker installed and are logged in
-* Build a local Docker image with Jupyter installed on top of DSE
-  * (from repo directory) cd dse-jupyter
-  * ./docker-build.sh
 * Create a file to hold environment variables
   * CONSUMER_KEY=...
   * CONSUMER_SECRET=...
   * ACCESS_TOKEN=...
   * ACCESS_TOKEN_SECRET=...
 * Run DSE and Jupyter using docker-compose
-  * (from repo directory) docker-compose up -d
+  * (from repo directory, where docker-compose.yaml is located) **docker-compose up -d**
 * Jupyter notebook server will be accessible at http://localhost:8888
   * Check log of Jupyter container to get login token
+    *docker logs bigdatadayla_jupyter_1 
 
