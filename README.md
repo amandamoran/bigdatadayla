@@ -40,5 +40,5 @@ Big Data Day LA demo
   * (from repo directory, where docker-compose.yaml is located) **docker-compose up -d**
 * Jupyter notebook server will be accessible at http://localhost:8888
   * Check log of Jupyter container to get login token
-    *docker logs bigdatadayla_jupyter_1 
+    * docker logs bigdatadayla_jupyter_1 
 
